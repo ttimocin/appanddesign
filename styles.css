@@ -1,0 +1,656 @@
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #1a1a1a;
+  background: #ffffff;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+header {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: -0.5px;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #4a5568;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.5rem 0;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.nav-menu a:hover {
+  color: #1a1a1a;
+}
+
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #1a1a1a;
+  transition: width 0.2s ease;
+}
+
+.nav-menu a:hover::after {
+  width: 100%;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.language-select {
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  background: white;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  color: #4a5568;
+}
+
+.language-select:focus {
+  border-color: #1a1a1a;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
+}
+
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  gap: 4px;
+}
+
+.hamburger-menu span {
+  width: 24px;
+  height: 2px;
+  background: #1a1a1a;
+  transition: all 0.3s ease;
+  border-radius: 1px;
+}
+
+.hamburger-menu.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8rem 2rem;
+  text-align: center;
+  background: #fafafa;
+  margin: 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 1.5rem;
+  color: #1a1a1a;
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  max-width: 800px;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  max-width: 600px;
+  margin-bottom: 3rem;
+  color: #4a5568;
+  font-weight: 400;
+}
+
+.hero a {
+  background: #1a1a1a;
+  color: white;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.hero a:hover {
+  background: #333;
+  transform: translateY(-1px);
+}
+
+.section {
+  padding: 5rem 2rem;
+  background: white;
+  margin: 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.section-title {
+  text-align: center;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 4rem;
+  color: #1a1a1a;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.services, .portfolio {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.service, .project {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: left;
+  transition: all 0.2s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.service:hover, .project:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border-color: #e2e8f0;
+}
+
+.service img, .project img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  transition: all 0.2s ease;
+}
+
+.service:hover img, .project:hover img {
+  transform: scale(1.02);
+}
+
+.service h3, .project h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #1a1a1a;
+  font-weight: 600;
+  letter-spacing: -0.25px;
+}
+
+.service p, .project p {
+  font-size: 1rem;
+  color: #4a5568;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.contact {
+  background: #fafafa;
+  padding: 4rem 2rem;
+  text-align: center;
+  margin: 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.contact h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 1.5rem;
+  color: #1a1a1a;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.contact p {
+  font-size: 1.125rem;
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+  color: #4a5568;
+}
+
+.contact a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #1a1a1a;
+  color: white;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.contact a:hover {
+  background: #333;
+  transform: translateY(-1px);
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.875rem;
+  color: #4a5568;
+  background: white;
+  margin: 0;
+  border-top: 1px solid #f0f0f0;
+}
+
+/* Başvuru Formu Stilleri */
+.contact-form-section {
+  background: white;
+  padding: 5rem 2rem;
+  margin: 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.form-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  padding: 3rem;
+  border-radius: 8px;
+  border: 1px solid #f0f0f0;
+}
+
+.form-container h2 {
+  text-align: center;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  margin-bottom: 0.5rem;
+  color: #1a1a1a;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.form-subtitle {
+  text-align: center;
+  font-size: 1.125rem;
+  color: #4a5568;
+  margin-bottom: 3rem;
+  font-weight: 400;
+}
+
+.contact-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group:nth-child(3),
+.form-group:nth-child(4),
+.form-group:nth-child(5),
+.form-group:nth-child(6),
+.form-group:nth-child(7) {
+  grid-column: span 2;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #1a1a1a;
+  font-size: 0.875rem;
+  letter-spacing: 0.025em;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 0.875rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background: white;
+  font-family: inherit;
+  color: #1a1a1a;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #1a1a1a;
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
+}
+
+.form-group input:hover,
+.form-group select:hover,
+.form-group textarea:hover {
+  border-color: #cbd5e0;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+  font-family: inherit;
+  line-height: 1.5;
+}
+
+.submit-btn {
+  grid-column: span 2;
+  background: #1a1a1a;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 1.5rem;
+}
+
+.submit-btn:hover {
+  background: #333;
+  transform: translateY(-1px);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Form Başarı/Hata Mesajları */
+.form-message {
+  grid-column: span 2;
+  padding: 1rem 1.5rem;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: 500;
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+}
+
+.form-message.success {
+  background: #f0fff4;
+  color: #22543d;
+  border: 1px solid #9ae6b4;
+}
+
+.form-message.error {
+  background: #fed7d7;
+  color: #742a2a;
+  border: 1px solid #feb2b2;
+}
+
+/* Mobil Responsive Tasarım */
+@media (max-width: 768px) {
+  header {
+    padding: 0.75rem 1rem;
+  }
+  
+  .logo {
+    font-size: 1.25rem;
+  }
+  
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 2rem;
+    transition: left 0.3s ease;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  }
+  
+  .nav-menu.active {
+    left: 0;
+  }
+  
+  .nav-menu a {
+    margin: 0.5rem 0;
+    font-size: 1.125rem;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    width: 80%;
+    text-align: center;
+  }
+  
+  .nav-menu a:hover {
+    background: rgba(102, 126, 234, 0.1);
+    transform: translateY(-2px);
+  }
+  
+  .hamburger-menu {
+    display: flex;
+  }
+  
+  .header-controls {
+    gap: 0.75rem;
+  }
+  
+  .language-select {
+    font-size: 0.75rem;
+    padding: 0.375rem 0.75rem;
+  }
+  
+  .hero {
+    padding: 4rem 1rem;
+    margin: 1rem;
+  }
+  
+  .hero h1 {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+  
+  .hero p {
+    font-size: 1rem;
+  }
+  
+  .section {
+    padding: 3rem 1rem;
+    margin: 1rem;
+  }
+  
+  .section-title {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    margin-bottom: 2rem;
+  }
+  
+  .services, .portfolio {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .service, .project {
+    padding: 1.5rem;
+  }
+  
+  .service h3, .project h3 {
+    font-size: 1.25rem;
+  }
+  
+  .service p, .project p {
+    font-size: 0.875rem;
+  }
+  
+  .contact {
+    margin: 1rem;
+    padding: 3rem 1rem;
+  }
+  
+  .contact h2 {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+  }
+  
+  .contact p {
+    font-size: 1rem;
+  }
+  
+  /* Form Mobil Stilleri */
+  .contact-form-section {
+    padding: 3rem 1rem;
+    margin: 1rem;
+  }
+  
+  .form-container {
+    padding: 2rem 1.5rem;
+  }
+  
+  .form-container h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+  }
+  
+  .form-subtitle {
+    font-size: 1rem;
+  }
+  
+  .contact-form {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .form-group:nth-child(3),
+  .form-group:nth-child(4),
+  .form-group:nth-child(5),
+  .form-group:nth-child(6),
+  .form-group:nth-child(7) {
+    grid-column: span 1;
+  }
+  
+  .submit-btn {
+    grid-column: span 1;
+    padding: 0.875rem 1.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .logo {
+    font-size: 1.125rem;
+  }
+  
+  .hero {
+    padding: 3rem 0.75rem;
+  }
+  
+  .hero h1 {
+    font-size: clamp(1.75rem, 7vw, 2.5rem);
+  }
+  
+  .hero p {
+    font-size: 0.875rem;
+  }
+  
+  .hero a {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.875rem;
+  }
+  
+  .section {
+    padding: 2rem 0.75rem;
+  }
+  
+  .service, .project {
+    padding: 1rem;
+  }
+  
+  .contact {
+    margin: 0.75rem;
+    padding: 2rem 0.75rem;
+  }
+  
+  .contact h2 {
+    font-size: clamp(1.25rem, 6vw, 2rem);
+  }
+  
+  .contact p {
+    font-size: 0.875rem;
+  }
+  
+  /* Form Küçük Ekran Stilleri */
+  .contact-form-section {
+    padding: 2rem 0.75rem;
+    margin: 0.75rem;
+  }
+  
+  .form-container {
+    padding: 1.5rem 1rem;
+  }
+  
+  .form-container h2 {
+    font-size: clamp(1.25rem, 5vw, 1.75rem);
+  }
+  
+  .form-subtitle {
+    font-size: 0.875rem;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 0.75rem 0.875rem;
+    font-size: 0.875rem;
+  }
+  
+  .submit-btn {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.875rem;
+  }
+} 
